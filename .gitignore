@@ -1,0 +1,13 @@
+
+.idea
+
+.rvmrc
+.ruby-version
+.ruby-gemset
+
+# Vim files
+*.orig
+*swo
+*swp
+*~
+
