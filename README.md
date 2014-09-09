@@ -5,7 +5,9 @@ Poi Spreadheet
 
 This is a simple spreadsheet wrapper around the powerfull Apache POI for Ruby.
 
-It is rather dumb at this point, but adding functionality is very simple. Just look up the Java documentation for Apache POI and add wrapper for what you need (make sure to send a pull request too!).
+At this point, simple reading and writing is supported. If you need more, adding functionality is very simple.
+Just look up the Java documentation for Apache POI and add wrapper for what you need (make sure to send a pull request too).
+
 
 Installation
 ---------------------
