@@ -15,11 +15,12 @@ In your Gemfile:
 ```ruby
 gem 'poi_spreadsheet'
 ```
-Getting Started
+
+Usage
 ---------------------
 ```ruby
 # load your file
-book = PoiSpreadsheet.load 'xls-templates/timesheet.xls'; 
+book = PoiSpreadsheet.load 'my_sheet.xls'; 
 
 # read the first sheet
 10.times { |x| 
@@ -30,14 +31,14 @@ book = PoiSpreadsheet.load 'xls-templates/timesheet.xls';
 ```
 
 Write some data
-```
+```ruby
 book.sheets.first.last[0][0] = 1;
 book.sheets.first.last[0][1] = "Hello World"
 ```
 
 Save the document
 
-```
+```ruby
 book.save # save into original
 book.save 'file_name.xls'
 ```
