@@ -29,6 +29,20 @@ book = PoiSpreadsheet.load 'xls-templates/timesheet.xls';
 }
 ```
 
+Write some data
+```
+book.sheets.first.last[0][0] = 1;
+book.sheets.first.last[0][1] = "Hello World"
+```
+
+Save the document
+
+```
+book.save # save into original
+book.save 'file_name.xls'
+```
+
+
 IDEAS
 -----
 
