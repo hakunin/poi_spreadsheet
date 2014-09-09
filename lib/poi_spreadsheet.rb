@@ -9,8 +9,6 @@ class PoiSpreadsheet
 
     @cell_class = cell_class = Rjb::import('org.apache.poi.hssf.usermodel.HSSFCell')
 
-    # Java classes import 
-    @file_class = Rjb::import('java.io.FileOutputStream')
 
     Rjb::import('org.apache.poi.hssf.usermodel.HSSFCreationHelper')
     Rjb::import('org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator')
@@ -32,51 +30,14 @@ class PoiSpreadsheet
   end
 
 
-  # for xls use org.apache.poi.hssf.extractor.ExcelExtractor
-
-=begin 
-
-  Example java code
-
-  Workbook wb = new HSSFWorkbook(fis); //or new XSSFWorkbook("/somepath/test.xls")
-  Sheet sheet = wb.getSheetAt(0);
-  FormulaEvaluator evaluator = wb.getCreationHelper().createFormulaEvaluator();
-
-  // suppose your formula is in B3
-  CellReference cellReference = new CellReference("B3"); 
-  Row row = sheet.getRow(cellReference.getRow());
-  Cell cell = row.getCell(cellReference.getCol()); 
-
-  if (cell!=null) {
-    switch (evaluator.evaluateFormulaCell(cell)) {
-      case Cell.CELL_TYPE_BOOLEAN:
-          System.out.println(cell.getBooleanCellValue());
-          break;
-      case Cell.CELL_TYPE_NUMERIC:
-          System.out.println(cell.getNumericCellValue());
-          break;
-      case Cell.CELL_TYPE_STRING:
-          System.out.println(cell.getStringCellValue());
-          break;
-      case Cell.CELL_TYPE_BLANK:
-          break;
-      case Cell.CELL_TYPE_ERROR:
-          System.out.println(cell.getErrorCellValue());
-          break;
-
-      // CELL_TYPE_FORMULA will never occur
-      case Cell.CELL_TYPE_FORMULA: 
-          break;
-    }
-  }
-=end
-
 
   class Workbook
   
     attr_accessor :j_book
 
     def self.load file
+      @file_name = file
+
       @workbook_class = Rjb::import('org.apache.poi.hssf.usermodel.HSSFWorkbook')
       @poifs_class = Rjb::import('org.apache.poi.poifs.filesystem.POIFSFileSystem')
       @file_input_class = Rjb::import('java.io.FileInputStream')
@@ -111,6 +72,17 @@ class PoiSpreadsheet
     # Get sheet by name
     def [](k)
       sheets[k]
+    end
+
+    def save file_name = @file_name
+      @file_output_class ||= Rjb::import('java.io.FileOutputStream')
+      out = @file_output_class.new(file_name);
+
+      begin
+        j_book.write(out)
+      ensure
+        out.close();
+      end
     end
 
     def _evaluator
@@ -167,6 +139,11 @@ class PoiSpreadsheet
           }
         end
         @types[constant]
+      end
+
+      def []= col, value
+        cell = j_row.getCell(col)
+        cell.setCellValue(value)
       end
       
       def [] col
