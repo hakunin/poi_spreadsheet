@@ -29,6 +29,13 @@ book = PoiSpreadsheet.load 'xls-templates/timesheet.xls';
 }
 ```
 
+IDEAS
+-----
+
+ - add support for adding/removing/modifying sheets
+ - add support for xlsx
+ - add support for styling
+
 
 Problems? Issues? Want to help out?
 ---------------------
