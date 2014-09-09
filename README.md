@@ -45,10 +45,12 @@ book.save 'file_name.xls'
 
 IDEAS
 -----
-
- - add support for adding/removing/modifying sheets
+ - support cell names (A3..)
+ - manipulate cells themselves
+ - read, write and execute formulas
+ - adding/removing/modifying sheets
  - add support for xlsx
- - add support for styling
+ - styling
 
 
 Problems? Issues? Want to help out?
