@@ -1,7 +1,8 @@
 
-=======
 Poi Spreadheet
 =========
+
+[![Gem Version](https://badge.fury.io/rb/poi_spreadsheet.svg)](http://badge.fury.io/rb/poi_spreadsheet)
 
 This is a simple spreadsheet wrapper around the powerfull Apache POI for Ruby.
 
