@@ -21,7 +21,7 @@ Usage
 ---------------------
 ```ruby
 # load your file
-book = PoiSpreadsheet.load 'my_sheet.xls'; 
+book = PoiSpreadsheet.load 'my_sheet.xls'
 
 # read the first sheet
 10.times { |x| 
