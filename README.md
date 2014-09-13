@@ -33,7 +33,7 @@ book = PoiSpreadsheet.load 'my_sheet.xls';
 
 Write some data
 ```ruby
-book.sheets.first.last[0][0] = 1;
+book.sheets.first.last[0][0] = 1
 book.sheets.first.last[0][1] = "Hello World"
 ```
 
