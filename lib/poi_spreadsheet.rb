@@ -69,6 +69,14 @@ class PoiSpreadsheet
       end
     end
 
+    def create_sheet name
+      self.sheets << Worksheet.from_sheet(j_book.createSheet(name))
+    end
+
+    def clone_sheet index
+      self.sheets << Worksheet.from_sheet(j_book.cloneSheet(index))
+    end
+
     # Get sheet by name
     def [](k)
       sheets[k]
