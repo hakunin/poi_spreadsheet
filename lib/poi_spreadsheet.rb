@@ -129,6 +129,15 @@ class PoiSpreadsheet
       sheet
     end
 
+    def name
+      j_sheet.getSheetName
+    end
+
+    def name= name
+      j_book = j_sheet.getWorkbook
+      j_book.setSheetName(j_book.getSheetIndex(j_sheet), name)
+    end
+
     class Row
 
       attr_accessor :j_row
