@@ -54,16 +54,16 @@ class PoiSpreadsheet
       @sheets = nil
     end
 
-    # Get sheet names
+    # Get sheets
     def sheets
       @sheets ||= begin
-        sheets = {}
+        sheets = []
         self.j_book.getNumberOfSheets.times { |i|
           j_sheet = j_book.getSheetAt(i)
           sheet = Worksheet.from_sheet(j_sheet)
           sheet.book = self
           name = j_book.getSheetName(i)
-          sheets[name] = sheet
+          sheets << sheet
         }
         sheets
       end
