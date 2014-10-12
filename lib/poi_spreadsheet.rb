@@ -77,6 +77,11 @@ class PoiSpreadsheet
       self.sheets << Worksheet.from_sheet(j_book.cloneSheet(index))
     end
 
+    def remove_sheet_at index
+      j_book.removeSheetAt(index)
+      @sheets.delete_at(index)
+    end
+
     # Get sheet by name
     def [](k)
       sheets[k]
