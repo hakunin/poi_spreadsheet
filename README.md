@@ -26,15 +26,15 @@ book = PoiSpreadsheet.load 'my_sheet.xls'
 # read the first sheet
 10.times { |x| 
   10.times { |y| 
-    puts "#{x}: #{y} #{book.sheets.first.last[x][y].inspect}" 
+    puts "#{x}: #{y} #{book.sheets.first[x][y].inspect}" 
   }
 }
 ```
 
 Write some data
 ```ruby
-book.sheets.first.last[0][0] = 1
-book.sheets.first.last[0][1] = "Hello World"
+book.sheets.first[0][0] = 1
+book.sheets.first[0][1] = "Hello World"
 ```
 
 Save the document
@@ -42,6 +42,22 @@ Save the document
 ```ruby
 book.save # save into original
 book.save 'file_name.xls'
+```
+
+Manipulate sheets
+
+```ruby
+book.sheets.length # => 1
+book.clone_sheet(0)
+book.sheets.length # => 2
+```
+
+```ruby
+book.create_sheet 'name'
+```
+
+```ruby
+book.remove_sheet_at 0
 ```
 
 
