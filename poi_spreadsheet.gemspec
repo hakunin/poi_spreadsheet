@@ -3,7 +3,7 @@ $:.unshift lib unless $:.include?(lib)
 
 Gem::Specification.new do |s|
   s.name        = "poi_spreadsheet"
-  s.version     = "0.0.3"
+  s.version     = "0.0.4"
   s.date        = '2014-09-09'
   s.summary     = "Modify excel sheets using the powerfull Apache POI"
   s.description = "There are quite a few pure ruby gems to deal with excel files with various degree of success. This gem's approach is to use powerfull software like Apache POI and simply provide ruby like interface."
