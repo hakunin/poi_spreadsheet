@@ -64,11 +64,10 @@ book.remove_sheet_at 0
 IDEAS
 -----
  - support cell names (A3..)
- - manipulate cells themselves
+ - manipulate cell style
+ - merge cells
  - read, write and execute formulas
- - adding/removing/modifying sheets
  - add support for xlsx
- - styling
 
 
 Problems? Issues? Want to help out?
