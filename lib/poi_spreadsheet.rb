@@ -22,7 +22,6 @@ class PoiSpreadsheet
 
 
   def self.load file
-    puts 'Hello!'
     unless @loaded
       init
     end
